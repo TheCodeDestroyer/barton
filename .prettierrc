@@ -1,0 +1,26 @@
+{
+  "printWidth": 80,
+  "jsxSingleQuote": false,
+  "bracketSameLine": false,
+  "semi": true,
+  "arrowParens": "always",
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "trailingComma": "none",
+  "importOrder": [
+    "^react|(?:-react)",
+    "^@?\\w",
+    "(?:\\.config)",
+    "(?:\\.utils)|(?:\\.constant)|(?:\\.mapper)",
+    "(?:\\.gql)",
+    "(?:[Ss]hape)",
+    "(?:\\.schema)",
+    "(?:\\.hook)",
+    "(?:[Cc]omponent)",
+    "(?:\\.s?css)",
+    "^[./]"
+  ],
+  "importOrderSeparation": true
+}
