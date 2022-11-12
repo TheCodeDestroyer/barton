@@ -4,7 +4,9 @@
 
 @layer base {
   html,
-  body {
+  body,
+  main {
     background-color: #f7f8fb;
+    @apply font-sans text-primary;
   }
 }

@@ -10,11 +10,22 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: '#1E1E1E',
+        'theme-blue': {
+          100: '#F7F8FB',
+          200: '#D3D7E1',
+          300: '#233869'
+        }
+      },
       fontFamily: {
         sans: ['var(--font-nunito)', ...fontFamily.sans],
         indie: ['var(--font-indie-flower)']
+      },
+      aspectRatio: {
+        shipImage: '65 / 32'
       }
     }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/aspect-ratio')]
 };
