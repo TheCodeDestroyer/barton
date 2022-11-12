@@ -17,8 +17,8 @@ const ArrowRight: FC<ArrowRightProps> = ({ className }) => (
       <circle cx="15" cy="15.2002" r="15" fill="#F7F8FB" />
     </g>
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M13.5703 19.591C13.0538 20.1117 13.0538 20.956 13.5703 21.4767C14.0869 21.9974 14.9243 21.9974 15.4409 21.4767L21.6667 15.2005L15.4409 8.92438C14.9243 8.40368 14.0869 8.40368 13.5704 8.92438C13.0538 9.44508 13.0538 10.2893 13.5704 10.81L16.4267 13.6895L9.65546 13.6895C8.92498 13.6895 8.3328 14.2864 8.3328 15.0228C8.3328 15.7592 8.92498 16.3561 9.65546 16.3561L16.7794 16.3561L13.5703 19.591Z"
       fill="#233869"
     />
@@ -30,9 +30,9 @@ const ArrowRight: FC<ArrowRightProps> = ({ className }) => (
         width="30"
         height="31"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
           in="SourceAlpha"
           type="matrix"

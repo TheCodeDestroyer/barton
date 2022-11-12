@@ -31,8 +31,7 @@ const App: FC<AppProps> = ({ Component, pageProps }: AppProps) => (
       className={classNames(
         nunito.variable,
         indieFlower.variable,
-        'font-sans text-primary',
-        'container mx-auto px-4 sm:px-6 lg:px-8'
+        'font-sans text-primary'
       )}
     >
       <Component {...pageProps} />
