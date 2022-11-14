@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 
 import Link from 'next/link';
 
-import ArrowRight from './icons/ArrowRight';
+import Picture from './common/Picture';
+import ArrowRightIcon from './icons/ArrowRightIcon';
 
 interface ShipCardProps {
   id: string;
@@ -11,28 +12,32 @@ interface ShipCardProps {
   imgUrl: string;
 }
 
-const ShipCard: FC<ShipCardProps> = ({ id, name, type, imgUrl }) => {
+const ShipCard: FC<ShipCardProps> = function ({ id, name, type, imgUrl }) {
+  const detailPath = useMemo<string>(() => `/ship/${id}`, [id]);
+
   return (
-    <div className="w-[320px] bg-white shadow-xl rounded-lg">
-      <div className="block w-full h-[160px] overflow-hidden rounded-t-lg">
-        <img
-          src={imgUrl}
-          alt={name}
-          className="pointer-events-none object-cover w-full h-full"
-        />
-      </div>
-      <div className="flex flex-row p-[20px]  justify-between">
+    <div className="w-full bg-white shadow-xl rounded-lg">
+      <Link href={detailPath}>
+        <div className="block w-full h-[160px] overflow-hidden rounded-t-lg">
+          <Picture
+            src={imgUrl}
+            alt={name}
+            className="object-cover w-full h-full"
+          />
+        </div>
+      </Link>
+      <div className="flex flex-row p-[20px] justify-between">
         <div className="flex flex-col">
-          <span className="pointer-events-none mt-2 block truncate font-bold text-[18px]">
-            {name}
-          </span>
-          <span className="pointer-events-none block text-theme-blue-300/50">
-            {type}
-          </span>
+          <Link href={detailPath}>
+            <span className="mt-2 block truncate font-bold text-[18px] hover:underline">
+              {name}
+            </span>
+          </Link>
+          <span className="block text-theme-blue-300/50">{type}</span>
         </div>
         <div className="flex items-center">
-          <Link href={`/ship/${id}`}>
-            <ArrowRight className="cursor-pointer" />
+          <Link href={detailPath}>
+            <ArrowRightIcon className="cursor-pointer" />
           </Link>
         </div>
       </div>

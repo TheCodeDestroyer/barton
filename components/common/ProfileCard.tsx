@@ -7,15 +7,9 @@ interface ProfileCardProps {
   label: string;
   value: any;
   suffix?: string;
-  wrapperClassName?: string;
 }
 
-const ProfileCard: FC<ProfileCardProps> = ({
-  label,
-  value,
-  suffix,
-  wrapperClassName
-}) => {
+const ProfileCard: FC<ProfileCardProps> = ({ label, value, suffix }) => {
   const title = useMemo(() => {
     if (suffix) {
       return `${value} ${suffix}`;
@@ -25,9 +19,9 @@ const ProfileCard: FC<ProfileCardProps> = ({
   }, [suffix, value]);
 
   return (
-    <div className="relative flex items-center mt-[10px]">
-      <ProfileCardWrapper className="mx-auto" />
-      <div className="absolute text-[18px] flex flex-col items-center left-1/3 ml-[28px]">
+    <div className="relative mt-[10px]">
+      <ProfileCardWrapper />
+      <div className="absolute z-10 text-[18px] flex flex-col items-center justify-center inset-0 m-auto">
         <label className="font-indie text-theme-blue-300/50 ">{label}</label>
         <SubTitle text={title} />
       </div>

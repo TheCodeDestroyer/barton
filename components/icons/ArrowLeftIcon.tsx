@@ -1,17 +1,22 @@
 import { FC } from 'react';
 
+import { classNames } from '../../util/jsx.util';
+
 interface ArrowLeftProps {
   className?: string;
 }
 
-const ArrowLeft: FC<ArrowLeftProps> = ({ className }) => (
+const ArrowLeftIcon: FC<ArrowLeftProps> = ({ className = '' }) => (
   <svg
     width="30"
     height="32"
     viewBox="0 0 30 32"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
+    className={classNames(
+      'hover:rounded-full hover:shadow hover:shadow-theme-blue-300',
+      className
+    )}
   >
     <g filter="url(#filter0_d_17_9790)">
       <circle cx="15" cy="15.2002" r="15" fill="#F7F8FB" />
@@ -60,4 +65,4 @@ const ArrowLeft: FC<ArrowLeftProps> = ({ className }) => (
   </svg>
 );
 
-export default ArrowLeft;
+export default ArrowLeftIcon;

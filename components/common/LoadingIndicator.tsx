@@ -1,17 +1,22 @@
 import { FC } from 'react';
 
-import { classNames } from '../util/jsx.util';
+import { classNames } from '../../util/jsx.util';
 
 interface LoadingIndicatorProps {
   heightClassName?: string;
   widthClassName?: string;
+  marginTopClassName?: string;
 }
 
 const LoadingIndicator: FC<LoadingIndicatorProps> = ({
-  heightClassName = 'w-8',
-  widthClassName = 'h-8'
+  heightClassName = 'w-20',
+  widthClassName = 'h-20',
+  marginTopClassName = 'mt-20'
 }) => (
-  <div className="m-auto mt-20 w-20" role="status">
+  <div
+    className={classNames('m-auto', widthClassName, marginTopClassName)}
+    role="status"
+  >
     <svg
       aria-hidden="true"
       className={classNames(

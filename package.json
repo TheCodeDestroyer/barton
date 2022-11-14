@@ -6,12 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "base:prettier": "prettier './**/*.{ts,tsx,html,json}' --config .prettierrc --cache",
+    "lint:prettier": "yarn base:prettier --check",
+    "lint": "next lint && yarn lint:prettier",
+    "format:prettier": "yarn base:prettier --write",
+    "format": "yarn format:prettier && next lint --fix"
   },
   "dependencies": {
     "@apollo/client": "3.7.1",
     "@next/font": "13.0.3",
-    "@tailwindcss/aspect-ratio": "0.4.2",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",

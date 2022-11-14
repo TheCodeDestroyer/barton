@@ -8,8 +8,10 @@ const ProfileCardWrapper: FC<ProfileCardWrapperProps> = ({ className }) => (
   <svg
     viewBox="0 0 325 111"
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+    width="100%"
     className={className}
+    xmlns="http://www.w3.org/2000/svg"
   >
     <path
       d="M3.71032 8.73659V18.2617V34.8271L2.0376 56.3221L3.71032 77.5877L2.0376 104.714L20.8814 110.2L41.2486 109.371H79.4089L108.847 110.2H147.229H200.762H241.165H293.688L319.95 103.574L325 89.6215V59.6752V26.016L319.95 1.69629H287.628H241.165H200.762L102.786 3.76696H36.1222H20.8814L3.71032 8.73659Z"

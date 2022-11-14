@@ -4,7 +4,7 @@ interface ArrowDownProps {
   className?: string;
 }
 
-const ArrowDown: FC<ArrowDownProps> = ({ className }) => (
+const ArrowDownIcon: FC<ArrowDownProps> = ({ className }) => (
   <svg
     width="29"
     height="23"
@@ -28,4 +28,4 @@ const ArrowDown: FC<ArrowDownProps> = ({ className }) => (
   </svg>
 );
 
-export default ArrowDown;
+export default ArrowDownIcon;

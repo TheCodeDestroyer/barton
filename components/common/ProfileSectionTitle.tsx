@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
-import { classNames } from '../util/jsx.util';
-import ArrowDown from './icons/ArrowDown';
+import ArrowDownIcon from '../icons/ArrowDownIcon';
 
 interface ProfileSectionTitleProps {
   title: string;
@@ -16,7 +15,7 @@ const ProfileSectionTitle: FC<ProfileSectionTitleProps> = ({
     <h3 className="font-indie text-[18px] text-theme-blue-300 pb-4 float-left mr-2">
       {title}
     </h3>
-    <ArrowDown className="mt-3" />
+    <ArrowDownIcon className="mt-3" />
   </div>
 );
 

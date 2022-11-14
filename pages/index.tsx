@@ -1,50 +1,41 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 
-import apolloClient from '../config/apollo-client.config';
+import { useQuery } from '@apollo/client';
 
 import { GET_SHIP_LIST } from '../gql/ship.gql';
 
-import ShipCard from '../components/ShipCard';
-import Title from '../components/Title';
+import ShipList from '../components/ShipList';
+import LoadingIndicator from '../components/common/LoadingIndicator';
+import Title from '../components/common/Title';
 
 import { ShipBaseModel } from '../type/interface/ship.model';
+
+interface QueryResult {
+  ships: ShipBaseModel[];
+}
 
 interface HomeProps {
   ships?: ShipBaseModel[];
 }
 
-export async function getServerSideProps() {
-  const { data, loading } = await apolloClient.query({
-    query: GET_SHIP_LIST
-  });
+const Home: FC<HomeProps> = () => {
+  const { data, loading } = useQuery<QueryResult>(GET_SHIP_LIST);
 
-  return {
-    props: {
-      loading,
-      ships: data.ships
+  const ships = useMemo<ShipBaseModel[]>(() => {
+    if (!data || !data.ships) {
+      return [];
     }
-  };
-}
 
-const Home: FC<HomeProps> = ({ ships = [] }) => (
-  <div className="flex flex-col container my-4 mx-auto px-4 sm:px-6 lg:px-8">
-    <Title text="Collections" />
-    <ul
-      role="list"
-      className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
-    >
-      {ships.map((ship) => (
-        <li key={ship.id} className="relative">
-          <ShipCard
-            id={ship.id}
-            name={ship.name}
-            imgUrl={ship.image}
-            type={ship.type}
-          />
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+    return data.ships;
+  }, [data]);
+
+  return (
+    <div className="flex flex-col container mt-8 pb-20 mx-auto px-4 sm:px-6 lg:px-8">
+      <Title text="Collections" />
+      {loading && <LoadingIndicator marginTopClassName="mt-24" />}
+      {!loading && <ShipList ships={ships} />}
+    </div>
+  );
+};
 
 export default Home;
